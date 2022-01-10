@@ -1,7 +1,6 @@
 import CreateEvents
 import MovieInformation
 import pandas as pd
-import numpy as np
 from collections import Counter
 
 def SplitCategories(category_data):
@@ -41,7 +40,7 @@ def EventWeights(event_data, event_cat_data, top_cats):
         weight = 0
         for category in i:
             for cat in top_cats['Category']:
-                if str(category) in cat:
+                if str(category) in cat or cat in category:
                     weight += 1
             final_weight = weight/len(i)
         event_weights.append(final_weight)
@@ -71,4 +70,3 @@ event_cats_split = SplitCategories(event_cats)
 top_5 = TopCats(movie_cats_split, 5)
 
 recommended_events = RecommendEvents(events, event_cats_split, top_5, 3)
-print(recommended_events)
