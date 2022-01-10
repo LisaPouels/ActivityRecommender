@@ -8,7 +8,7 @@ from collections import Counter
 #import data 
 filepath = "C:/Users/20193222/Dropbox/school/TUe en Tilburg University/Startups/ActivityRecommender"
 
-df_watch_history = pd.read_csv(filepath + '/Data/NetflixViewingHistory_Kim.csv') #watchHistory
+df_watch_history = pd.read_csv(filepath + '/Data/NetflixViewingHistory_Roelle.csv') #watchHistory
 df_neflix_titles = pd.read_csv(filepath + '/Data/netflix_titles.csv') #netflixInfo
 
 #get series names (split off epsides/seasons) (NetflixSeasons)
@@ -31,4 +31,4 @@ top_5 = LinkEventsAndMovies.TopCats(movie_cats_split, 5)
 
 recommended_events = LinkEventsAndMovies.RecommendEvents(events, event_cats, top_5, 3)
 
-print(top_5, recommended_events)
+print(recommended_events)
